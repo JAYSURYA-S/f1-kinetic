@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>F1 KINETIC | DRIVERS</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Inter:wght@400;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#282a2a",
+                        "outline-variant": "#5f3e3e",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-fixed": "#ffdad8",
+                        "surface-dim": "#131313",
+                        "on-secondary-container": "#00616d",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "surface": "#131313",
+                        "primary-fixed-dim": "#ffb3b2",
+                        "on-secondary": "#00363d",
+                        "inverse-primary": "#bf002a",
+                        "on-primary": "#680012",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#00e3fd",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary": "#2f3131",
+                        "tertiary-container": "#909191",
+                        "tertiary": "#c6c6c7",
+                        "surface-container": "#201f1f",
+                        "surface-tint": "#ffb3b2",
+                        "on-background": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "outline": "#af8786",
+                        "secondary-fixed-dim": "#00daf3",
+                        "secondary": "#bdf4ff",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed": "#9cf0ff",
+                        "primary": "#ffb3b2",
+                        "on-secondary-fixed": "#001f24",
+                        "surface-variant": "#353534",
+                        "inverse-on-surface": "#313030",
+                        "primary-container": "#ff525c",
+                        "on-primary-fixed-variant": "#92001e",
+                        "surface-container-highest": "#353534",
+                        "on-primary-container": "#5b000f",
+                        "on-surface-variant": "#e9bcba",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#410008",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .neon-glow-red {
+            text-shadow: 0 0 10px rgba(255, 82, 92, 0.5), 0 0 20px rgba(255, 82, 92, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .grid-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container"
+    data-mode="connect">
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-white/5 h-20 flex justify-between items-center px-8">
+        <div class="text-2xl font-black italic tracking-tighter text-red-500 font-headline uppercase">
+            F1 KINETIC
+        </div>
+        <div class="hidden md:flex gap-8 items-center font-headline italic tracking-tighter uppercase text-sm">
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="intro.html">Intro</a>
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="hero.html">Hero</a>
+            <a class="text-red-400 border-b-2 border-red-500 pb-1 px-3 py-1" href="drivers.html">Drivers</a>
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="teams.html">Teams</a>
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="stats.html">Stats</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="hidden lg:flex items-center gap-4 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                <span class="text-[10px] font-label tracking-widest text-neutral-400 uppercase">RACE SOUND</span>
+                <div class="w-20 h-1 bg-red-900/30 rounded-full relative overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 w-3/4 bg-red-500"></div>
+                </div>
+                <span class="material-symbols-outlined text-red-500 text-sm">sensors</span>
+            </div>
+            <button onclick="window.location.href='hero.html'" class="bg-primary-container text-on-primary-container font-headline italic font-bold text-xs px-6 py-2.5 rounded-sm scale-95 active:scale-90 transition-transform tracking-tighter uppercase shadow-[0_0_20px_rgba(255,82,92,0.3)]">
+                FEEL THE SPEED
+            </button>
+        </div>
+    </nav>
+    <main class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+        <!-- Racetrack Textures & Grid Background -->
+        <div class="absolute inset-0 z-0 grid-bg pointer-events-none opacity-40"></div>
+        <div
+            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-500/5 to-transparent pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto px-8 relative z-10">
+            <!-- Header Section -->
+            <div
+                class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 border-l-4 border-primary-container pl-6">
+                <div>
+                    <span class="text-secondary font-label tracking-[0.3em] text-xs uppercase mb-2 block">ELITE PILOT
+                        TELEMETRY</span>
+                    <h1 class="text-7xl md:text-8xl font-headline font-bold italic uppercase tracking-tighter text-white neon-glow-red">
+                        Jay TITANS
+                    </h1>
+                </div>
+                <div class="text-right">
+                    <p class="text-neutral-500 font-label text-[10px] tracking-widest uppercase mb-1">DATA REFRESH RATE
+                    </p>
+                    <p class="text-secondary font-headline italic font-bold text-xl">0.004 MS</p>
+                </div>
+            </div>
+            <!-- Drivers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Driver Card: Max Verstappen -->
+                <div
+                    class="group relative glass-card p-1 rounded-sm border border-outline-variant/15 hover:border-secondary/60 hover:shadow-[0_0_40px_rgba(0,218,243,0.1)] transition-all duration-500 hover:-translate-y-2">
+                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-6">
+                        <img alt="Max Verstappen F1 Driver"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz7DhRsv_kqCn4VWFy6d0L-aOCSvc3t3fkenSbTHvYHUBXSF5w6iAq40Aqev5UglwOMN4ohRI-wIumkohwcoEiVqhqb7KUGgNdUZD3gvmYe2L-vu_eYjxTDyb527NM9m1jUMTvojta9Z1S06sseoqFGc8UDUnOfyxpwGSWjVvjN2I3rxrSBAIPNLyXDioKm19WbToIsRtZL5lDQyFmiIB-7YNVV67g7yVo5HCUX6whKlLzsRWFrVYq2YzKKGYlllpQR_1ejNmvlQ">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-surface-container-lowest to-transparent">
+                            <span
+                                class="text-secondary font-label text-[10px] font-bold tracking-[0.2em] bg-secondary-fixed-variant/40 px-2 py-1 rounded-sm">WORLD
+                                CHAMPION</span>
+                            <h2 class="text-4xl font-headline font-bold italic uppercase tracking-tighter text-white mt-2">
+                                Max Verstappen</h2>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 text-7xl font-headline font-black italic opacity-10 text-white select-none">
+                            01</div>
+                    </div>
+                    <div class="px-6 pb-6 space-y-6">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <div>
+                                <p class="text-neutral-500 font-label text-[10px] tracking-widest uppercase">TEAM</p>
+                                <p class="text-white font-headline italic font-bold">ORACLE RED BULL RACING</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-neutral-500 font-label text-[10px] tracking-widest uppercase">PTS</p>
+                                <p class="text-primary font-headline italic font-bold text-2xl">454</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 p-3 rounded-sm border-l-2 border-secondary">
+                                <p class="text-neutral-500 font-label text-[8px] tracking-widest uppercase mb-1">MAX
+                                    VELOCITY</p>
+                                <p class="text-white font-headline italic font-bold text-sm">342.1 KM/H</p>
+                            </div>
+                            <div class="bg-white/5 p-3 rounded-sm border-l-2 border-primary">
+                                <p class="text-neutral-500 font-label text-[8px] tracking-widest uppercase mb-1">TIRE
+                                    MGMT</p>
+                                <p class="text-white font-headline italic font-bold text-sm">94%</p>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='stats.html'"
+                            class="w-full bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary-container transition-all py-3 flex items-center justify-center gap-2 group/btn">
+                            <span class="font-headline italic font-bold text-xs uppercase tracking-tighter">VIEW
+                                HISTORICAL TELEMETRY</span>
+                            <span class="material-symbols-outlined text-sm">query_stats</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Driver Card: Lewis Hamilton -->
+                <div
+                    class="group relative glass-card p-1 rounded-sm border border-outline-variant/15 hover:border-secondary/60 hover:shadow-[0_0_40px_rgba(0,218,243,0.1)] transition-all duration-500 hover:-translate-y-2">
+                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-6">
+                        <img alt="Lewis Hamilton F1 Driver"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-HsrVcVJcg8rl8beP-uUs54oRwIE7WVZdFdyikFGoHrwefh90D0C1xB4jzdsvlSiwLtJXIHDgvqqS6V-jrvrXDDFENx5cflg9pVipESxpjlAjlQuaxEbQCTMtzwNLaT_MsyzFZ0kZrO10ahuw1I8o1kXFc1Ve6lqOpMqBWpnabTntOj76iKE7_J3lT7gbaw1KIC9cMQdCRH6Uo_bPzbyokRxrUgkLiJoJf9iBcQVLvyAhJfDw8vXwddG8yHR0-wZl2QB28Z1q0A">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-surface-container-lowest to-transparent">
+                            <span
+                                class="text-secondary font-label text-[10px] font-bold tracking-[0.2em] bg-secondary-fixed-variant/40 px-2 py-1 rounded-sm">7X
+                                CHAMPION</span>
+                            <h2 class="text-4xl font-headline font-bold italic uppercase tracking-tighter text-white mt-2">
+                                Lewis Hamilton</h2>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 text-7xl font-headline font-black italic opacity-10 text-white select-none">
+                            44</div>
+                    </div>
+                    <div class="px-6 pb-6 space-y-6">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <div>
+                                <p class="text-neutral-500 font-label text-[10px] tracking-widest uppercase">TEAM</p>
+                                <p class="text-white font-headline italic font-bold">MERCEDES-AMG PETRONAS</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-neutral-500 font-label text-[10px] tracking-widest uppercase">PTS</p>
+                                <p class="text-primary font-headline italic font-bold text-2xl">234</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 p-3 rounded-sm border-l-2 border-secondary">
+                                <p class="text-neutral-500 font-label text-[8px] tracking-widest uppercase mb-1">MAX
+                                    VELOCITY</p>
+                                <p class="text-white font-headline italic font-bold text-sm">338.4 KM/H</p>
+                            </div>
+                            <div class="bg-white/5 p-3 rounded-sm border-l-2 border-primary">
+                                <p class="text-neutral-500 font-label text-[8px] tracking-widest uppercase mb-1">REACTION
+                                </p>
+                                <p class="text-white font-headline italic font-bold text-sm">0.18s</p>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='stats.html'"
+                            class="w-full bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary-container transition-all py-3 flex items-center justify-center gap-2 group/btn">
+                            <span class="font-headline italic font-bold text-xs uppercase tracking-tighter">VIEW
+                                HISTORICAL TELEMETRY</span>
+                            <span class="material-symbols-outlined text-sm">query_stats</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Driver Card: Charles Leclerc -->
+                <div
+                    class="group relative glass-card p-1 rounded-sm border border-outline-variant/15 hover:border-secondary/60 hover:shadow-[0_0_40px_rgba(0,218,243,0.1)] transition-all duration-500 hover:-translate-y-2">
+                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-6">
+                        <img alt="Charles Leclerc F1 Driver"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi_RpCZxXkYtnUlSe59748Ietf142R_CuOpK068MI7P0XaCeTkhj2J88MxsCiZtknDVF-9Vk5hDlIpS3yxmlhD-NmiRHlC-m3x6UOeGWCuXvdNV8P0He4eUXiWu0vDkw6VZxNvgNq3xxrr50htj5j6JWtYBPAC--2WxiMaPzsnIKZjGJzwn9BrJwDVB3L1p7gQMnVR-OuBJj-MkjqormFFCyB3ntnVVPFIobiFNnUAzJILuEiGMwEetMgg1ZUWs5ELMFp6m-u3zQ">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-surface-container-lowest to-transparent">
+                            <span
+                                class="text-secondary font-label text-[10px] font-bold tracking-[0.2em] bg-secondary-fixed-variant/40 px-2 py-1 rounded-sm">MONACO
+                                ACE</span>
+                            <h2 class="text-4xl font-headline font-bold italic uppercase tracking-tighter text-white mt-2">
+                                Charles Leclerc</h2>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 text-7xl font-headline font-black italic opacity-10 text-white select-none">
+                            16</div>
+                    </div>
+                    <div class="px-6 pb-6 space-y-6">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <div>
+                                <p class="text-neutral-500 font-label text-[10px] tracking-widest uppercase">TEAM</p>
+                                <p class="text-white font-headline italic font-bold">SCUDERIA FERRARI</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-neutral-500 font-label text-[10px] tracking-widest uppercase">PTS</p>
+                                <p class="text-primary font-headline italic font-bold text-2xl">206</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 p-3 rounded-sm border-l-2 border-secondary">
+                                <p class="text-neutral-500 font-label text-[8px] tracking-widest uppercase mb-1">MAX
+                                    VELOCITY</p>
+                                <p class="text-white font-headline italic font-bold text-sm">341.2 KM/H</p>
+                            </div>
+                            <div class="bg-white/5 p-3 rounded-sm border-l-2 border-primary">
+                                <p class="text-neutral-500 font-label text-[8px] tracking-widest uppercase mb-1">QUALY
+                                    AVG</p>
+                                <p class="text-white font-headline italic font-bold text-sm">P2.4</p>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='stats.html'"
+                            class="w-full bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary-container transition-all py-3 flex items-center justify-center gap-2 group/btn">
+                            <span class="font-headline italic font-bold text-xs uppercase tracking-tighter">VIEW
+                                HISTORICAL TELEMETRY</span>
+                            <span class="material-symbols-outlined text-sm">query_stats</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Live Feed Status Bar -->
+        <div class="fixed bottom-0 w-full z-40 bg-neutral-950/90 backdrop-blur-md border-t border-white/5 py-3">
+            <div
+                class="max-w-7xl mx-auto px-8 flex justify-between items-center font-label text-[10px] tracking-[0.2em] text-neutral-400 uppercase">
+                <div class="flex gap-8">
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                        LIVE SESSION: MONZA
+                    </div>
+                    <div class="hidden md:block">TRACK TEMP: <span class="text-white">48.2°C</span></div>
+                    <div class="hidden md:block">HUMIDITY: <span class="text-white">12%</span></div>
+                    <div class="hidden md:block">AIR: <span class="text-white">29.1°C</span></div>
+                </div>
+                <div class="flex items-center gap-4 text-secondary">
+                    <span>SECTOR 1: PURPLE</span>
+                    <span class="material-symbols-outlined text-sm">speed</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-neutral-950 w-full border-t border-white/5 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xl font-bold text-white font-headline italic uppercase">F1 KINETIC</div>
+            <div class="flex gap-8 font-label uppercase tracking-widest text-[10px] text-neutral-500">
+                <a class="hover:text-red-400 transition-colors" href="#">X</a>
+                <a class="hover:text-red-400 transition-colors" href="#">Instagram</a>
+                <a class="hover:text-red-400 transition-colors" href="#">YouTube</a>
+                <span class="text-red-500 font-bold">FASTEST LAP: 1:14.672</span>
+            </div>
+            <div class="text-neutral-500 font-label uppercase tracking-widest text-[10px]">
+                © 2024 F1 KINETIC. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+    <!-- Global Background Music (Continuous) -->
+    <audio id="globalBg" loop preload="auto">
+        <source src="/global_bg.mpeg" type="audio/mpeg">
+    </audio>
+    <!-- Hidden Audio for Hover Music (Verstappen) -->
+    <audio id="hoverSong" preload="auto">
+        <source src="/hero_song.mpeg" type="audio/mpeg">
+    </audio>
+    <!-- Hidden Audio for Hover Music (Hamilton) -->
+    <audio id="hamiltonSong" preload="auto">
+        <source src="/hamilton_song.mpeg" type="audio/mpeg">
+    </audio>
+    <!-- Hidden Audio for Hover Music (Leclerc) -->
+    <audio id="leclercSong" preload="auto">
+        <source src="/leclerc_song.mpeg" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const globalBg = document.getElementById('globalBg');
+        const hoverSong = document.getElementById('hoverSong');
+        const hamiltonSong = document.getElementById('hamiltonSong');
+        const leclercSong = document.getElementById('leclercSong');
+        let soundEnabled = true;
+
+        // Auto-play attempt on load
+        window.addEventListener('load', () => {
+            globalBg.volume = 0.3;
+            globalBg.play().catch(e => console.log("Click page to unblock global music."));
+        });
+
+        // Navigation Toggle Logic
+        const soundToggleDiv = document.querySelector('.hidden.lg\\:flex.items-center.gap-4.bg-white\\/5');
+        if (soundToggleDiv) {
+            soundToggleDiv.style.cursor = 'pointer';
+            soundToggleDiv.addEventListener('click', () => {
+                soundEnabled = !soundEnabled;
+                const icon = soundToggleDiv.querySelector('.material-symbols-outlined');
+                icon.textContent = soundEnabled ? 'sensors' : 'sensors_off';
+                icon.classList.toggle('text-red-500', soundEnabled);
+                icon.classList.toggle('text-neutral-500', !soundEnabled);
+                
+                if (!soundEnabled) {
+                    globalBg.pause();
+                    hoverSong.pause();
+                    hamiltonSong.pause();
+                    leclercSong.pause();
+                } else {
+                    globalBg.play();
+                }
+            });
+        }
+
+        // --- Hover Logic Helper ---
+        function addHoverSound(selector, audioEl) {
+            const card = document.querySelector(selector);
+            if (card) {
+                card.addEventListener('mouseenter', () => {
+                    if (soundEnabled) {
+                        // Duck/Pause the global music to let driver track shine
+                        globalBg.pause();
+                        audioEl.volume = 0.5;
+                        audioEl.play().catch(e => console.log("Sound blocked. Click page first."));
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    audioEl.pause();
+                    // Resume global music
+                    if (soundEnabled) {
+                        globalBg.play();
+                    }
+                });
+            }
+        }
+
+        // Max Verstappen Card (1st)
+        addHoverSound('.grid-cols-1.md\\:grid-cols-3 > div:nth-child(1)', hoverSong);
+        
+        // Lewis Hamilton Card (2nd)
+        addHoverSound('.grid-cols-1.md\\:grid-cols-3 > div:nth-child(2)', hamiltonSong);
+
+        // Charles Leclerc Card (3rd)
+        addHoverSound('.grid-cols-1.md\\:grid-cols-3 > div:nth-child(3)', leclercSong);
+    </script>
+</body>
+
+</html>

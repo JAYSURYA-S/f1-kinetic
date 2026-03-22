@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>F1 KINETIC | THE COCKPIT</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255, 0, 60, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 0, 60, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .start-light-off {
+            background: #400010;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.9), 0 0 5px rgba(255, 0, 60, 0.1);
+            border: 1px solid rgba(255, 0, 60, 0.1);
+        }
+        .start-light-on {
+            background: #FF003C !important;
+            box-shadow: 0 0 30px #FF003C, 0 0 60px #FF003C, 0 0 90px rgba(255, 0, 60, 0.4) !important;
+            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+            filter: brightness(1.5);
+        }
+        .start-light-go {
+            background: #00FF66 !important;
+            box-shadow: 0 0 30px #00FF66, 0 0 60px #00FF66, 0 0 90px rgba(0, 255, 102, 0.4) !important;
+            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+            filter: brightness(1.5);
+        }
+        @keyframes screen-shake {
+            0% { transform: translate(0,0); }
+            10% { transform: translate(-5px,-5px); }
+            20% { transform: translate(5px,5px); }
+            30% { transform: translate(-5px,5px); }
+            40% { transform: translate(5px,-5px); }
+            100% { transform: translate(0,0); }
+        }
+        .animate-shake {
+            animation: screen-shake 0.05s infinite;
+        }
+        @keyframes car-launch-anim {
+            0% { transform: translate(30%, 30%) scale(1); filter: blur(0px); }
+            100% { transform: translate(-300%, -100%) scale(4); filter: blur(100px); opacity: 0; }
+        }
+        .car-launch {
+            animation: car-launch-anim 0.4s cubic-bezier(1, 0, 1, 1) forwards;
+        }
+        .motion-blur-active {
+            filter: blur(24px) contrast(1.4) brightness(1.2);
+            transform: skewX(-15deg);
+            transition: filter 0.2s ease-out, transform 0.2s ease-out;
+        }
+        .text-glow-go {
+            text-shadow: 0 0 20px rgba(0, 255, 102, 0.8), 0 0 40px rgba(0, 255, 102, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-white/5 h-20 flex justify-between items-center px-8">
+    <div class="text-2xl font-black italic tracking-tighter text-red-500 font-headline uppercase">
+        F1 KINETIC
+    </div>
+    <div class="hidden md:flex gap-8 items-center font-headline italic tracking-tighter uppercase text-sm">
+        <a class="text-red-400 border-b-2 border-red-500 pb-1 px-3 py-1" href="intro.html">Intro</a>
+        <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="hero.html">Hero</a>
+        <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="drivers.html">Drivers</a>
+        <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="teams.html">Teams</a>
+        <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="stats.html">Stats</a>
+    </div>
+    <div class="flex items-center gap-6">
+        <div class="hidden lg:flex items-center gap-4 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+            <span class="text-[10px] font-label tracking-widest text-neutral-400 uppercase">RACE SOUND</span>
+            <div class="w-20 h-1 bg-red-900/30 rounded-full relative overflow-hidden">
+                <div class="absolute inset-y-0 left-0 w-3/4 bg-red-500"></div>
+            </div>
+            <span class="material-symbols-outlined text-red-500 text-sm">sensors</span>
+        </div>
+        <button onclick="window.location.href='hero.html'" class="bg-primary-container text-on-primary-container font-headline italic font-bold text-xs px-6 py-2.5 rounded-sm scale-95 active:scale-90 transition-transform tracking-tighter uppercase shadow-[0_0_20px_rgba(255,82,92,0.3)]">
+            FEEL THE SPEED
+        </button>
+    </div>
+</nav>
+
+<!-- Main Cinematic Canvas -->
+<main class="relative h-screen w-screen overflow-hidden flex flex-col items-center justify-center bg-background-dark transition-all duration-300">
+<!-- Background Grid & Textures -->
+<div class="absolute inset-0 kinetic-grid pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface opacity-60"></div>
+<!-- Particle Streaks (Visual Representation) -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+<div class="absolute top-1/4 left-0 w-full h-[1px] bg-primary-container/40 blur-[1px]"></div>
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-secondary-fixed-dim/30 blur-[2px]"></div>
+<div class="absolute top-3/4 left-0 w-full h-[1px] bg-primary-container/40 blur-[1px]"></div>
+</div>
+<!-- Start Lights System -->
+<div class="relative z-20 flex flex-col items-center gap-12">
+<!-- The Light Gantry -->
+<div class="flex gap-6 p-8 bg-background-dark/80 backdrop-blur-2xl border border-primary/20 rounded-lg shadow-[0_0_60px_rgba(255,0,60,0.1)]" id="light-gantry">
+<div class="light-column flex flex-col gap-3" data-index="0">
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+</div>
+<div class="light-column flex flex-col gap-3" data-index="1">
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+</div>
+<div class="light-column flex flex-col gap-3" data-index="2">
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+</div>
+<div class="light-column flex flex-col gap-3" data-index="3">
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+</div>
+<div class="light-column flex flex-col gap-3" data-index="4">
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+<div class="w-14 h-14 rounded-full start-light-off"></div>
+</div>
+</div>
+<!-- Kinetic Status Readout -->
+<div class="flex flex-col items-center gap-2"><span class="font-label text-[10px] uppercase tracking-[0.3em] text-primary font-bold">Launch Telemetry Active</span>
+<h1 class="font-headline text-6xl md:text-9xl italic font-black tracking-tighter uppercase text-on-surface flex items-center gap-4" id="status-text">PREPARING...</h1></div>
+</div>
+<!-- Launch Visual (Asymmetric Car Placement) -->
+<div class="absolute bottom-0 right-0 w-3/4 h-2/3 transform translate-x-1/4 translate-y-1/4 opacity-40">
+<img alt="High speed F1 car silhouette on starting grid" class="w-full h-full object-cover grayscale brightness-50 contrast-125 mix-blend-screen motion-blur-active" data-alt="Modern Formula 1 car silhouette on a dark starting grid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9qs-Iyt2b0A5zjE1b0fnLx5uruTY7YzK6IiNDHknLb_TqzfRyGN0vH7ga-uotw6GYg6P4tCmw-GXAdVLJ8uXHO3p3cgN6ja8h5-yDwQeKy3vjuzQgdy2LgQbh2ivlqXMryDaOQykh3xWSbG0m0XL8UrD10_tnH3Eu9oavgbR8FCHXxqPCzQgTw6o0ymihd1WtWEEiU_tK6600_9YtFhU8oh2yxeoZYsxpqbCt3UkPeofr53nw4k88U7NYMIsbgk5jWXfQyjAQkQ"/>
+<div class="absolute inset-0 bg-gradient-to-l from-transparent to-surface-container-lowest"></div>
+</div>
+<!-- HUD Overlays -->
+<div class="absolute inset-0 p-10 flex flex-col justify-between pointer-events-none">
+<!-- Top HUD -->
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-[10px] uppercase tracking-widest">Live Feed: Circuit 01</span>
+</div>
+<div class="text-xs font-label text-on-surface-variant/40">LAT: 51.8510° N | LONG: 1.0230° W</div>
+</div>
+<div class="flex flex-col items-end gap-2 bg-surface-container-low/40 backdrop-blur p-4 border-r-2 border-primary-container">
+<span class="font-label text-[10px] uppercase text-secondary">Engine Temp</span>
+<div class="text-xl font-headline italic font-bold">104°C</div>
+</div>
+</div>
+<!-- Bottom HUD Controls -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 pointer-events-auto">
+<!-- Telemetry Cards -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low/40 backdrop-blur border border-outline-variant/15 hover:border-secondary/60 transition-all group">
+<span class="font-label text-[10px] uppercase text-on-surface-variant/60 block mb-1">Traction Control</span>
+<div class="text-lg font-headline italic font-bold text-secondary group-hover:text-secondary-fixed">OVERRIDE</div>
+</div>
+<div class="p-4 bg-surface-container-low/40 backdrop-blur border border-outline-variant/15 hover:border-secondary/60 transition-all group">
+<span class="font-label text-[10px] uppercase text-on-surface-variant/60 block mb-1">ERS Charge</span>
+<div class="text-lg font-headline italic font-bold text-primary-container group-hover:text-primary">98%</div>
+</div>
+</div>
+<!-- Ignition Action -->
+<div class="flex flex-col items-end gap-4">
+<div class="flex items-center gap-4 bg-surface-container-low/80 p-2 rounded-lg border border-outline-variant/10">
+<div class="flex flex-col items-end">
+<span class="font-label text-[10px] text-on-surface-variant/60 uppercase">System Audio</span>
+<span class="font-label text-[10px] text-secondary uppercase font-bold">V12 PURE ENGINE</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-sm hover:text-secondary bg-primary/20">
+<span class="material-symbols-outlined text-primary">volume_up</span>
+</button>
+</div>
+<button id="launchBtn" class="group relative px-12 py-5 bg-primary-container text-on-primary-container font-headline text-2xl italic font-black tracking-tighter uppercase overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,82,92,0.3)]">
+<div class="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-[-20deg]"></div>
+                        ENGAGE LAUNCH
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Telemetry -->
+<footer class="bg-neutral-950 w-full border-t border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-xl font-bold text-white font-headline italic uppercase">F1 KINETIC</div>
+        <div class="flex gap-8 font-label uppercase tracking-widest text-[10px] text-neutral-500">
+            <a class="hover:text-red-400 transition-colors" href="#">X</a>
+            <a class="hover:text-red-400 transition-colors" href="#">Instagram</a>
+            <a class="hover:text-red-400 transition-colors" href="#">YouTube</a>
+            <span class="text-red-500 font-bold">FASTEST LAP: 1:14.672</span>
+        </div>
+        <div class="text-neutral-500 font-label uppercase tracking-widest text-[10px]">
+            © 2024 F1 KINETIC. ALL RIGHTS RESERVED.
+        </div>
+    </div>
+</footer>
+<!-- Decorative Corner Elements -->
+<div class="fixed top-0 left-0 w-32 h-32 border-l border-t border-primary-container/20 pointer-events-none z-50"></div>
+<div class="fixed top-0 right-0 w-32 h-32 border-r border-t border-primary-container/20 pointer-events-none z-50"></div>
+<div class="fixed bottom-0 left-0 w-32 h-32 border-l border-b border-primary-container/20 pointer-events-none z-50"></div>
+<div class="fixed bottom-0 right-0 w-32 h-32 border-r border-b border-primary-container/20 pointer-events-none z-50"></div>
+<!-- Hidden Audio Elements -->
+<audio id="engineSound" loop preload="auto">
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-formula-one-race-car-passing-by-1536.mp3" type="audio/mpeg">
+</audio>
+<audio id="launchSound" preload="auto">
+    <source src="/engine.mpeg" type="audio/mpeg">
+</audio>
+<audio id="lightBeep" preload="auto">
+    <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const columns = document.querySelectorAll('.light-column');
+    const statusText = document.getElementById('status-text');
+    const mainCanvas = document.querySelector('main');
+    const carImage = mainCanvas.querySelector('img');
+    const launchBtn = document.getElementById('launchBtn');
+    const engineSound = document.getElementById('engineSound');
+    const launchSound = document.getElementById('launchSound');
+    const lightBeep = document.getElementById('lightBeep');
+    let soundEnabled = true;
+
+    // Direct initialization on first click for mobile/browser compliance
+    function initAudio() {
+        if (!soundEnabled) return;
+        engineSound.play().then(() => {
+            console.log("Audio unblocked and playing.");
+            engineSound.volume = 0.1;
+        }).catch(err => {
+            console.error("Audio failed to start:", err);
+        });
+        // Pre-warm launch sound
+        launchSound.play().then(() => {
+             launchSound.pause();
+             launchSound.currentTime = 0;
+        }).catch(() => {});
+        // Pre-warm beep sound
+        lightBeep.play().then(() => {
+             lightBeep.pause();
+             lightBeep.currentTime = 0;
+        }).catch(() => {});
+    }
+
+    // Audio Toggle Logic
+    const soundToggleBtn = document.querySelector('button[onclick*="hero.html"]').previousElementSibling;
+    if (soundToggleBtn) {
+        soundToggleBtn.style.cursor = 'pointer';
+        soundToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            soundEnabled = !soundEnabled;
+            const icon = soundToggleBtn.querySelector('.material-symbols-outlined');
+            icon.textContent = soundEnabled ? 'sensors' : 'sensors_off';
+            icon.classList.toggle('text-red-500', soundEnabled);
+            icon.classList.toggle('text-neutral-500', !soundEnabled);
+            
+            if (!soundEnabled) {
+                engineSound.pause();
+            } else {
+                initAudio();
+            }
+        });
+    }
+
+    function startSequence() {
+        let count = 0;
+        statusText.innerHTML = 'PREPARING...';
+        mainCanvas.classList.remove('animate-shake');
+        
+        // Ensure idle hum starts on button click
+        if (soundEnabled) {
+            initAudio();
+        }
+
+        const interval = setInterval(() => {
+            if (count < columns.length) {
+                // LIGHTS ON Logic
+                columns[count].querySelectorAll('div').forEach(light => {
+                    light.classList.remove('start-light-off');
+                    light.classList.add('start-light-on');
+                });
+
+                // Play Beep Sound for each light
+                if (soundEnabled) {
+                    lightBeep.currentTime = 0;
+                    lightBeep.volume = 0.8;
+                    lightBeep.play().catch(e => console.log("Beep failed"));
+                    // Increase background roar
+                    engineSound.volume = Math.min(0.2 + (count * 0.1), 1.0);
+                }
+
+                count++;
+                statusText.innerHTML = 'READY ' + count;
+            } else {
+                clearInterval(interval);
+                const randomDelay = Math.floor(Math.random() * 2500) + 500;
+                setTimeout(triggerLaunch, randomDelay);
+            }
+        }, 1000);
+    }
+
+    function triggerLaunch() {
+        columns.forEach(col => {
+            col.querySelectorAll('div').forEach(light => {
+                light.classList.remove('start-light-on');
+                light.classList.add('start-light-go');
+            });
+        });
+
+        statusText.innerHTML = '<span class="text-[#00FF66] drop-shadow-[0_0_20px_rgba(0,255,102,1)] italic text-glow-go uppercase">GO! GO! GO!</span>';
+
+        mainCanvas.classList.add('animate-shake');
+        carImage.classList.add('motion-blur-active', 'car-launch');
+        
+        if (soundEnabled) {
+            // Trigger the special WhatsApp Audio ONLY at GO!
+            launchSound.volume = 1.0;
+            launchSound.play().catch(e => console.log("Launch sound failed"));
+
+            // Lower the background engine hum to let the launch sound dominate
+            engineSound.volume = 0.05;
+        }
+
+        setTimeout(() => {
+            mainCanvas.classList.remove('animate-shake');
+        }, 800);
+
+        setTimeout(() => {
+            window.location.href = 'hero.html';
+        }, 3200); // Give 3s for the custom sound to play out a bit
+    }
+
+    if (launchBtn) {
+        launchBtn.addEventListener('click', () => {
+             if (statusText.innerHTML.includes('GO') || statusText.innerHTML.includes('READY')) return;
+             initAudio();
+             startSequence();
+        });
+    }
+</script>
+</body>
+</html>

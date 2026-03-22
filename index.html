@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F1 KINETIC | COCKPIT</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#ff525c",
+              "secondary": "#bdf4ff",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#004f58",
+              "surface-container-highest": "#353534",
+              "outline-variant": "#5f3e3e",
+              "error": "#ffb4ab",
+              "on-error": "#690005",
+              "secondary-fixed": "#9cf0ff",
+              "secondary-fixed-dim": "#00daf3",
+              "surface": "#131313",
+              "on-surface-variant": "#e9bcba",
+              "on-secondary-fixed": "#001f24",
+              "primary-fixed": "#ffdad8",
+              "on-tertiary": "#2f3131",
+              "tertiary": "#c6c6c7",
+              "surface-container": "#201f1f",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "tertiary-container": "#909191",
+              "on-surface": "#e5e2e1",
+              "outline": "#af8786",
+              "on-background": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#454747",
+              "primary": "#ffb3b2",
+              "on-primary-fixed-variant": "#92001e",
+              "inverse-primary": "#bf002a",
+              "error-container": "#93000a",
+              "tertiary-fixed": "#e2e2e2",
+              "surface-container-high": "#2a2a2a",
+              "surface-bright": "#3a3939",
+              "on-secondary": "#00363d",
+              "inverse-on-surface": "#313030",
+              "surface-dim": "#131313",
+              "surface-variant": "#353534",
+              "surface-tint": "#ffb3b2",
+              "on-primary-fixed": "#410008",
+              "surface-container-low": "#1c1b1b",
+              "inverse-surface": "#e5e2e1",
+              "secondary-container": "#00e3fd",
+              "on-primary-container": "#5b000f",
+              "on-primary": "#680012",
+              "surface-container-lowest": "#0e0e0e",
+              "background": "#131313",
+              "on-secondary-container": "#00616d",
+              "on-tertiary-container": "#282a2a",
+              "primary-fixed-dim": "#ffb3b2",
+              "on-tertiary-fixed": "#1a1c1c"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+    <div id="app">
+        <!-- Content will be injected here if SPA, but for now we redirect -->
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
