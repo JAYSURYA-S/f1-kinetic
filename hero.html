@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>F1 KINETIC | VERSTAPPEN</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #e5e2e1;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .italic-tilt {
+            font-style: italic;
+        }
+
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .neon-glow-red {
+            box-shadow: 0 0 20px rgba(255, 82, 92, 0.15);
+        }
+
+        .neon-glow-blue {
+            box-shadow: 0 0 20px rgba(0, 218, 243, 0.15);
+        }
+
+        .text-glow-red {
+            text-shadow: 0 0 10px rgba(255, 179, 178, 0.5);
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .speed-line {
+            background: linear-gradient(90deg, transparent, rgba(255, 82, 92, 0.5), transparent);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffb3b2",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#00daf3",
+                        "primary-fixed": "#ffdad8",
+                        "outline-variant": "#5f3e3e",
+                        "surface-container": "#201f1f",
+                        "primary-container": "#ff525c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed": "#001f24",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-bright": "#3a3939",
+                        "inverse-primary": "#bf002a",
+                        "outline": "#af8786",
+                        "on-secondary-container": "#00616d",
+                        "on-primary-fixed-variant": "#92001e",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#ffb3b2",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary": "#680012",
+                        "surface-variant": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "secondary-fixed": "#9cf0ff",
+                        "secondary": "#bdf4ff",
+                        "inverse-surface": "#e5e2e1",
+                        "on-background": "#e5e2e1",
+                        "surface": "#131313",
+                        "surface-tint": "#ffb3b2",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary": "#2f3131",
+                        "on-primary-fixed": "#410008",
+                        "tertiary-container": "#909191",
+                        "on-tertiary-container": "#282a2a",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#e9bcba",
+                        "background": "#131313",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary-container": "#00e3fd",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#00363d",
+                        "on-primary-container": "#5b000f",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "tertiary": "#c6c6c7"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-surface-container-lowest text-on-surface font-body selection:bg-primary-container selection:text-white">
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-white/5 h-20 flex justify-between items-center px-8">
+        <div class="text-2xl font-black italic tracking-tighter text-red-500 font-headline uppercase">
+            F1 KINETIC
+        </div>
+        <div class="hidden md:flex gap-8 items-center font-headline italic tracking-tighter uppercase text-sm">
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="intro.html">Intro</a>
+            <a class="text-red-400 border-b-2 border-red-500 pb-1 px-3 py-1" href="hero.html">Hero</a>
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="drivers.html">Drivers</a>
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="teams.html">Teams</a>
+            <a class="text-neutral-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1" href="stats.html">Stats</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="hidden lg:flex items-center gap-4 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                <span class="text-[10px] font-label tracking-widest text-neutral-400 uppercase">RACE SOUND</span>
+                <div class="w-20 h-1 bg-red-900/30 rounded-full relative overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 w-3/4 bg-red-500"></div>
+                </div>
+                <span class="material-symbols-outlined text-red-500 text-sm">sensors</span>
+            </div>
+            <button class="bg-primary-container text-on-primary-container font-headline italic font-bold text-xs px-6 py-2.5 rounded-sm scale-95 active:scale-90 transition-transform tracking-tighter uppercase shadow-[0_0_20px_rgba(255,82,92,0.3)]">
+                FEEL THE SPEED
+            </button>
+        </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main class="relative pt-32">
+        <!-- Hero Section -->
+        <section class="relative h-[921px] w-full overflow-hidden flex items-end">
+            <!-- Background Image with data-alt -->
+            <div class="absolute inset-0 z-0">
+                <img alt="Max Verstappen RB20" class="w-full h-full object-cover grayscale contrast-125 opacity-40"
+                    data-alt="Close up of Max Verstappen in his Red Bull racing car"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA91QM9dkHCpxtKySBrUa6-wKtC2J6v_H-BKYWCCww8VkicQz6xydc3hZkOqKpXF4wj3e7uy21i_PzJUQJVlp80CpN5dnK5S9A0__biv_YnqTgxoW8Ww87SuDaWOT5Q3MIAJt4_VWF1_ZK1rzPa8UdSCx82MwYoc3py5SrB7rvn4YivYd1e0zKV5N6ZjMJIaGfl5YdOZmir7qLioh8ZDB7wszpA_8GK3a2lMmJcOlRJhWNixfev-WYW2d_rJm7FjhKmgxfp5TcexQ" />
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-surface/80 via-transparent to-transparent"></div>
+            </div>
+            <!-- Kinetic Overlay Grid -->
+            <div class="absolute inset-0 z-10 pointer-events-none">
+                <div class="grid grid-cols-12 h-full w-full opacity-5">
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                    <div class="border-r border-outline"></div>
+                </div>
+            </div>
+            <div class="relative z-20 w-full px-10 pb-20 grid grid-cols-12 items-end">
+                <div class="col-span-12 lg:col-span-8">
+                    <div class="flex items-center gap-4 mb-2">
+                        <span
+                            class="bg-primary-container text-on-primary-container px-3 py-0.5 font-label text-[10px] font-black uppercase tracking-[0.2em]">WORLD
+                            CHAMPION</span>
+                        <div class="h-[1px] w-24 bg-outline-variant/30"></div>
+                    </div>
+                    <h1
+                        class="font-headline text-[12vw] leading-[0.85] font-black italic tracking-tighter text-on-surface uppercase select-none">
+                        VERSTAPPEN
+                    </h1>
+                    <div class="flex items-center gap-10 mt-6">
+                        <div>
+                            <p class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60">TEAM
+                            </p>
+                            <p class="font-headline italic font-bold text-2xl text-secondary">ORACLE RED BULL RACING</p>
+                        </div>
+                        <div class="h-12 w-[1px] bg-outline-variant/30"></div>
+                        <div>
+                            <p class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60">CAR
+                                ID</p>
+                            <p class="font-headline italic font-bold text-2xl text-on-surface">RB20 HYBRID</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Performance Sidebar (Asymmetric layout) -->
+                <div class="hidden lg:block col-span-4 glass-panel p-8 border-l border-primary-container/20 neon-glow-red">
+                    <p class="font-label text-[10px] uppercase tracking-[0.3em] mb-6 text-primary">DRIVER INSIGHTS</p>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute -top-4 -left-4 text-primary/20 scale-150">format_quote</span>
+                        <p class="font-headline italic text-xl leading-relaxed text-on-surface">
+                            "You always have to believe in yourself. I never doubt my own abilities, and that's why we
+                            keep winning. The limit is just another target."
+                        </p>
+                    </div>
+                    <div class="mt-8 flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <span class="text-[10px] font-label text-on-surface-variant/60">HEART RATE</span>
+                            <span class="font-headline text-lg font-bold">142 BPM</span>
+                        </div>
+                        <div class="h-8 w-24 bg-surface-container-highest flex items-end p-1 gap-1">
+                            <div class="bg-primary w-full h-[40%]"></div>
+                            <div class="bg-primary w-full h-[60%]"></div>
+                            <div class="bg-primary w-full h-[90%]"></div>
+                            <div class="bg-primary w-full h-[70%]"></div>
+                            <div class="bg-primary w-full h-[85%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Stats Bento Grid -->
+        <section class="px-10 py-24 bg-surface-container-lowest">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Stat Card 1 -->
+                <div
+                    class="group relative overflow-hidden glass-panel p-8 border border-outline-variant/15 hover:border-secondary transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl" data-weight="fill">emoji_events</span>
+                    </div>
+                    <h3 class="font-label text-xs tracking-widest text-on-surface-variant/50 uppercase mb-4">Grand Prix
+                        Wins</h3>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-headline text-7xl font-black italic tracking-tighter text-primary">61</span>
+                        <span class="font-label text-xs text-on-surface-variant/60">TITLES: 3</span>
+                    </div>
+                    <div class="mt-6 h-1 w-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-primary-container w-[85%]"></div>
+                    </div>
+                </div>
+                <!-- Stat Card 2 -->
+                <div
+                    class="group relative overflow-hidden glass-panel p-8 border border-outline-variant/15 hover:border-secondary transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl" data-weight="fill">military_tech</span>
+                    </div>
+                    <h3 class="font-label text-xs tracking-widest text-on-surface-variant/50 uppercase mb-4">Podiums</h3>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-headline text-7xl font-black italic tracking-tighter text-secondary">106</span>
+                        <span class="font-label text-xs text-on-surface-variant/60">RATIO: 58%</span>
+                    </div>
+                    <div class="mt-6 h-1 w-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-secondary-fixed-dim w-[92%]"></div>
+                    </div>
+                </div>
+                <!-- Stat Card 3 -->
+                <div
+                    class="group relative overflow-hidden glass-panel p-8 border border-outline-variant/15 hover:border-secondary transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl" data-weight="fill">timer</span>
+                    </div>
+                    <h3 class="font-label text-xs tracking-widest text-on-surface-variant/50 uppercase mb-4">Pole
+                        Positions</h3>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-headline text-7xl font-black italic tracking-tighter text-on-surface">39</span>
+                        <span class="font-label text-xs text-on-surface-variant/60">QUALY AVG: 1.4</span>
+                    </div>
+                    <div class="mt-6 h-1 w-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-white w-[65%]"></div>
+                    </div>
+                </div>
+                <!-- Stat Card 4 -->
+                <div
+                    class="group relative overflow-hidden glass-panel p-8 border border-outline-variant/15 hover:border-secondary transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl" data-weight="fill">speed</span>
+                    </div>
+                    <h3 class="font-label text-xs tracking-widest text-on-surface-variant/50 uppercase mb-4">Fastest Laps
+                    </h3>
+                    <div class="flex items-baseline gap-2">
+                        <span
+                            class="font-headline text-7xl font-black italic tracking-tighter text-on-surface-variant">32</span>
+                        <span class="font-label text-xs text-on-surface-variant/60">EXTRA POINTS</span>
+                    </div>
+                    <div class="mt-6 h-1 w-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-outline w-[55%]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline & Analysis Section (Asymmetric) -->
+        <section class="px-10 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Milestones (Track Inspired) -->
+            <div class="lg:col-span-8">
+                <div class="flex items-center gap-4 mb-12">
+                    <h2 class="font-headline text-4xl font-black italic tracking-tighter uppercase">CAREER TRACK</h2>
+                    <div class="flex-1 h-[1px] bg-outline-variant/20"></div>
+                </div>
+                <div class="space-y-0 relative">
+                    <!-- Vertical Track Line -->
+                    <div class="absolute left-6 top-0 bottom-0 w-[2px] bg-surface-container-highest">
+                        <div class="absolute top-0 w-full h-1/2 bg-gradient-to-b from-primary via-secondary to-transparent">
+                        </div>
+                    </div>
+                    <!-- Milestone 1 -->
+                    <div class="relative pl-16 pb-16">
+                        <div
+                            class="absolute left-4 top-1 w-4 h-4 rounded-full bg-primary border-4 border-surface ring-4 ring-primary/20">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-end gap-4">
+                            <span class="font-headline text-4xl font-black italic text-on-surface-variant/20">2015</span>
+                            <div>
+                                <h4 class="font-headline text-xl font-bold italic text-on-surface">THE ARRIVAL</h4>
+                                <p class="text-sm text-on-surface-variant/60 max-w-lg">Debut with Scuderia Toro Rosso at
+                                    just 17 years old, becoming the youngest driver to start a Formula 1 Grand Prix.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Milestone 2 -->
+                    <div class="relative pl-16 pb-16">
+                        <div
+                            class="absolute left-4 top-1 w-4 h-4 rounded-full bg-secondary border-4 border-surface ring-4 ring-secondary/20">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-end gap-4">
+                            <span class="font-headline text-4xl font-black italic text-on-surface-variant/20">2016</span>
+                            <div>
+                                <h4 class="font-headline text-xl font-bold italic text-on-surface">FIRST BLOOD</h4>
+                                <p class="text-sm text-on-surface-variant/60 max-w-lg">Wins the Spanish Grand Prix on Red
+                                    Bull Racing debut. Youngest winner in F1 history.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Milestone 3 -->
+                    <div class="relative pl-16">
+                        <div
+                            class="absolute left-4 top-1 w-4 h-4 rounded-full bg-primary-container border-4 border-surface ring-4 ring-primary-container/20">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-end gap-4">
+                            <span
+                                class="font-headline text-4xl font-black italic text-on-surface-variant/20">2021-23</span>
+                            <div>
+                                <h4 class="font-headline text-xl font-bold italic text-primary">ERA OF DOMINANCE</h4>
+                                <p class="text-sm text-on-surface-variant/60 max-w-lg">Secures three consecutive World
+                                    Championships, rewriting the record books with 10 consecutive wins in 2023.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mini Telemetry (Data Focused) -->
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass-panel p-6 border border-outline-variant/15">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="font-label text-[10px] tracking-widest text-on-surface-variant/50 uppercase">Live
+                            Performance Analysis</span>
+                        <span class="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-surface-container-high border-l-2 border-secondary">
+                            <div class="flex justify-between text-xs mb-2">
+                                <span class="text-on-surface-variant/60">TYRE DEGRADATION</span>
+                                <span class="text-secondary font-bold">OPTIMAL</span>
+                            </div>
+                            <div class="h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary w-3/4"></div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-surface-container-high border-l-2 border-primary">
+                            <div class="flex justify-between text-xs mb-2">
+                                <span class="text-on-surface-variant/60">BRAKE TEMPERATURE</span>
+                                <span class="text-primary font-bold">940°C</span>
+                            </div>
+                            <div class="h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+                                <div class="h-full bg-primary w-4/5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-8 border-t border-outline-variant/10">
+                        <h5 class="font-label text-[10px] tracking-widest text-on-surface-variant/50 uppercase mb-4">
+                            TACTICAL OVERLAY</h5>
+                        <img alt="Track Map" class="w-full h-32 object-cover grayscale brightness-50 contrast-125 mb-4"
+                            data-location="Suzuka International Racing Course"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUVXeodaU_DO5AZOJIe77_VR36mGI4MPVjZLo9dQmmGh4Ykn6deF7j4LVF1mkXnmyaCogk8vJnTK_sD_M96-rpQ6D6Qr-vwt0sgMK1UZAmqYm-gYQw5AAEL5TS8Tpn6tfYkcfMbrbhUMxZyprRfuF3u-wu-31GdcXfjkPsZm_fwYF7X1roFOnkm5ztz7A1779bhkYuzdQeWOKjnkANjEy9wlTyhwlPpqoVMzU_eVHPr_b1kmYpbngaiD-Vwa3JWjCaA406wlRpiA" />
+                        <p class="text-[11px] text-on-surface-variant/50 leading-relaxed">
+                            Lateral G-force sustained through Turn 1: 4.8G. Minimal lift required. DRS activation
+                            efficiency at 98%.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA / Footer Transition Section -->
+        <section class="relative py-24 px-10 overflow-hidden">
+            <div class="absolute top-1/2 left-0 w-full h-[1px] speed-line"></div>
+            <div class="relative z-10 flex flex-col items-center">
+                <button onclick="window.location.href='drivers.html'"
+                    class="font-headline italic text-5xl font-black tracking-tighter hover:text-primary transition-all duration-300">
+                    VIEW NEXT DRIVER <span
+                        class="material-symbols-outlined align-middle ml-4 scale-150">trending_flat</span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-neutral-950 w-full border-t border-white/5 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xl font-bold text-white font-headline italic uppercase">F1 KINETIC</div>
+            <div class="flex gap-8 font-label uppercase tracking-widest text-[10px] text-neutral-500">
+                <a class="hover:text-red-400 transition-colors" href="#">X</a>
+                <a class="hover:text-red-400 transition-colors" href="#">Instagram</a>
+                <a class="hover:text-red-400 transition-colors" href="#">YouTube</a>
+                <span class="text-red-500 font-bold">FASTEST LAP: 1:14.672</span>
+            </div>
+            <div class="text-neutral-500 font-label uppercase tracking-widest text-[10px]">
+                © 2024 F1 KINETIC. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+    <!-- Hidden Audio for Hero Music -->
+    <audio id="heroSong" loop preload="auto">
+        <source src="/global_bg.mpeg" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const heroSong = document.getElementById('heroSong');
+        let soundEnabled = true;
+
+        // Auto-play attempt on load (should work after intro interaction)
+        window.addEventListener('load', () => {
+            heroSong.volume = 0.3;
+            heroSong.play().then(() => {
+                console.log("Hero song started.");
+            }).catch(e => {
+                console.log("Autoplay blocked, waiting for interaction.");
+            });
+        });
+
+        // Navigation Toggle Logic
+        const soundToggleDiv = document.querySelector('.hidden.lg\\:flex.items-center.gap-4.bg-white\\/5');
+        if (soundToggleDiv) {
+            soundToggleDiv.style.cursor = 'pointer';
+            soundToggleDiv.addEventListener('click', () => {
+                soundEnabled = !soundEnabled;
+                const icon = soundToggleDiv.querySelector('.material-symbols-outlined');
+                icon.textContent = soundEnabled ? 'sensors' : 'sensors_off';
+                icon.classList.toggle('text-red-500', soundEnabled);
+                icon.classList.toggle('text-neutral-500', !soundEnabled);
+                
+                if (!soundEnabled) {
+                    heroSong.pause();
+                } else {
+                    heroSong.play();
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
